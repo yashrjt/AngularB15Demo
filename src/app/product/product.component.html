@@ -1,0 +1,13 @@
+<div>The product ID is {{ productId}}</div>
+
+<ul *ngFor="let item of productArray">
+    <li > Product Id: {{item.id}}</li>
+    <li> Product NAme {{item.name}}</li>
+    <li > Product Price: {{item.price}}</li>
+</ul>
+
+<div *ngIf="showProductDetail">
+    This is the product description
+</div>
+
+<button (click)="submit()">Click Me!</button>

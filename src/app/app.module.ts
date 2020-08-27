@@ -3,14 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductComponent } from './product/product.component';
+import {AuthenticationModule}  from './authentication/authentication.module';
+import {MoviesModule}  from './movies/movies.module';
+import {CoreModule}  from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductComponent
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthenticationModule,
+    MoviesModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

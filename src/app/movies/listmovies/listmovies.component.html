@@ -1,0 +1,25 @@
+<table>
+    <thead>
+            <tr>
+                    <td>MovieId</td>
+                    <td>Title</td>
+                    <td>Director</td>
+                    <td>Star Rating</td>
+                    <td></td>
+                </tr>
+    </thead>
+   <tbody>
+       <ng-container *ngIf="!!movieList">
+            <ng-container *ngFor="let item of movieList">
+                    <tr>
+                        <td>{{item.movieid}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.director}}</td>
+                        <td>{{item.starRating}}</td>
+                        <td><button (click)="deleteMovie(item.movieid)">DELETE</button></td>
+                    </tr>
+                 </ng-container>
+        </ng-container>
+      
+   </tbody>
+</table>
