@@ -5,13 +5,16 @@ import { ListmoviesComponent } from './listmovies/listmovies.component';
 import { MoviesComponent } from './movies/movies.component';
 
 import {MovieRoutingModule}  from './movies.routing.module';
+import { SharedModule } from '../shared/shared.module';
+import { ShellMovieComponent } from './shell-movie/shell-movie.component';
 
 @NgModule({
-  declarations: [CreatemovieComponent, ListmoviesComponent, MoviesComponent],
+  declarations: [CreatemovieComponent, ListmoviesComponent, MoviesComponent,ShellMovieComponent],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    SharedModule
   ],
-  exports:[CreatemovieComponent,ListmoviesComponent,MoviesComponent]
+  exports:[CreatemovieComponent,ListmoviesComponent,MoviesComponent,ShellMovieComponent]
 })
 export class MoviesModule { }

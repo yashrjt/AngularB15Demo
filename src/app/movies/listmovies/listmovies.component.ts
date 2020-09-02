@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MovieService}  from '../movie.service';
 
 @Component({
@@ -8,34 +8,37 @@ import {MovieService}  from '../movie.service';
 })
 export class ListmoviesComponent implements OnInit {
 
-  movieList;
-  constructor(private movies:MovieService) { }
+  // movieList;
+
+  @Input() movies;
+
+  constructor() { }
 
   ngOnInit() {
-   this.getMovies();
+  // this.getMovies();
   }
 
-  getMovies(){
-    this.movies.getMovies().subscribe((res)=>{
-      console.log("ListmoviesComponent -> ngOnInit -> res", res)
-        this.movieList=res;
-      },
-      (err)=>{
-      console.log("ListmoviesComponent -> ngOnInit -> err", err)
+  // getMovies(){
+  //   this.movies.getMovies().subscribe((res)=>{
+  //     console.log("ListmoviesComponent -> ngOnInit -> res", res)
+  //       this.movieList=res;
+  //     },
+  //     (err)=>{
+  //     console.log("ListmoviesComponent -> ngOnInit -> err", err)
         
-      })
-  }
+  //     })
+  // }
 
   deleteMovie(movieid){
-  this.movies.delMovies(movieid).subscribe((res)=>{
+  // this.movies.delMovies(movieid).subscribe((res)=>{
 
-    console.log("ListmoviesComponent -> deleteMovie -> res", res)
-    this.getMovies();
-    },
-    (err)=>{
-    console.log("ListmoviesComponent -> ngOnInit -> err", err)
+  //   console.log("ListmoviesComponent -> deleteMovie -> res", res)
+  //   this.getMovies();
+  //   },
+  //   (err)=>{
+  //   console.log("ListmoviesComponent -> ngOnInit -> err", err)
       
-    })
+  //   })
  
 
   }

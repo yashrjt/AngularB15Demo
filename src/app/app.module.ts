@@ -7,6 +7,8 @@ import { ProductComponent } from './product/product.component';
 import {AuthenticationModule}  from './authentication/authentication.module';
 import {MoviesModule}  from './movies/movies.module';
 import {CoreModule}  from './core/core.module';
+import {SharedModule}  from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {CoreModule}  from './core/core.module';
     AppRoutingModule,
     AuthenticationModule,
     MoviesModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
