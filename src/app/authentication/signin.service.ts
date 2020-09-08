@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map,catchError } from "rxjs/operators";
 import { BehaviorSubject } from 'rxjs';
-
+import { Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class SigninService {
   isLoggedInObservable;
   tokenAvailable;
 
-    constructor(private http:HttpClient) { 
+    constructor(private http:HttpClient,private router:Router) { 
       if(!!localStorage.getItem('token')){
           this.tokenAvailable=true;
       }
@@ -47,6 +47,7 @@ export class SigninService {
   logout(){
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
+    this.router.navigate(['/signin']);
   }
 
 }

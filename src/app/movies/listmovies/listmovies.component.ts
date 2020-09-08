@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output ,EventEmitter} from '@angular/core';
 import {MovieService}  from '../movie.service';
+
 
 @Component({
   selector: 'app-listmovies',
@@ -12,6 +13,7 @@ export class ListmoviesComponent implements OnInit {
 
   @Input() movies;
 
+  @Output()  movieid:EventEmitter<number>=new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +32,8 @@ export class ListmoviesComponent implements OnInit {
   // }
 
   deleteMovie(movieid){
+    console.log("ListmoviesComponent -> deleteMovie -> movieid", movieid)
+    this.movieid.emit(movieid);
   // this.movies.delMovies(movieid).subscribe((res)=>{
 
   //   console.log("ListmoviesComponent -> deleteMovie -> res", res)

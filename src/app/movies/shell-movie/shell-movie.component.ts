@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MovieService}  from '../movie.service';
+import {Movie} from '../movie';
 
 @Component({
   selector: 'app-shell-movie',
@@ -8,8 +9,8 @@ import {MovieService}  from '../movie.service';
 })
 export class ShellMovieComponent implements OnInit {
 
-  movieList;
-  inputvalue='xyz';
+  movieList:Array<Movie>;
+  
   constructor(private movies:MovieService) { }
 
   ngOnInit() {
@@ -18,7 +19,7 @@ export class ShellMovieComponent implements OnInit {
 
   getMovies(){
     this.movies.getMovies().subscribe((res)=>{
-        this.movieList=res;
+        this.movieList=res['data']['result'];
         console.log("ShellMovieComponent -> getMovies ->  this.movieList",  this.movieList)
       },
       (err)=>{
@@ -27,4 +28,14 @@ export class ShellMovieComponent implements OnInit {
       })
   }
 
+  delMovieHandler(movieid){
+ 
+    this.movies.delMovies(movieid).subscribe((res)=>{
+    console.log("ShellMovieComponent -> delMovieHandler -> res", res)
+    this.getMovies();
+    },(err)=>{
+    console.log("ShellMovieComponent -> delMovieHandler -> err", err)
+      
+    })
+  }
 }
