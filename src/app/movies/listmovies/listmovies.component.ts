@@ -9,41 +9,27 @@ import {MovieService}  from '../movie.service';
 })
 export class ListmoviesComponent implements OnInit {
 
-  // movieList;
-
   @Input() movies;
 
   @Output()  movieid:EventEmitter<number>=new EventEmitter();
+  
   constructor() { }
 
   ngOnInit() {
-  // this.getMovies();
+  
   }
 
-  // getMovies(){
-  //   this.movies.getMovies().subscribe((res)=>{
-  //     console.log("ListmoviesComponent -> ngOnInit -> res", res)
-  //       this.movieList=res;
-  //     },
-  //     (err)=>{
-  //     console.log("ListmoviesComponent -> ngOnInit -> err", err)
-        
-  //     })
-  // }
+  checkRatingType(rating){
+      if(rating>4.5){
+        return true;
+      }
+      else{
+        return false;
+      }
+  }
 
   deleteMovie(movieid){
     console.log("ListmoviesComponent -> deleteMovie -> movieid", movieid)
     this.movieid.emit(movieid);
-  // this.movies.delMovies(movieid).subscribe((res)=>{
-
-  //   console.log("ListmoviesComponent -> deleteMovie -> res", res)
-  //   this.getMovies();
-  //   },
-  //   (err)=>{
-  //   console.log("ListmoviesComponent -> ngOnInit -> err", err)
-      
-  //   })
- 
-
   }
 }

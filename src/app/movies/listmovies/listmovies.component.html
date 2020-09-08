@@ -16,9 +16,9 @@
             <ng-container *ngFor="let item of movies">
                     <tr>
                         <td>{{item.movieid}}</td>
-                        <td>{{item.title}}</td>
+                        <td><a [routerLink]="[ item.movieid]" >{{item.title}}</a></td>
                         <td>{{item.director |uppercase}}</td>
-                        <td>{{item.starRating }}</td>
+                        <td [ngClass]="{highRating: checkRatingType(item.starRating)}">{{item.starRating }}</td>
                         <td>{{item.releaseDate |date }}</td>
                         <td>{{item.price | currency }}</td>
                         <td> {{item.approvalRating | audienceRating}}</td>
@@ -26,6 +26,7 @@
                     </tr>
                  </ng-container>
         </ng-container>
+
       
    </tbody>
 </table> 

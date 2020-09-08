@@ -5,10 +5,11 @@ import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule, FormsModule}  from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JWTInterceptor } from './jwt.interceptor';
+import { DescribeDirective } from './describe.directive';
 
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent],
+  declarations: [SigninComponent, SignupComponent, DescribeDirective],
   imports: [
     CommonModule,
     FormsModule,
